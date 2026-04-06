@@ -6,6 +6,9 @@ const MEILISEARCH_HOST = process.env.MEILISEARCH_HOST
 const MEILISEARCH_ADMIN_KEY = process.env.MEILISEARCH_ADMIN_KEY
 
 module.exports = defineConfig({
+  admin: {
+    maxUploadFileSize: 50 * 1024 * 1024, // 50MB
+  },
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {
