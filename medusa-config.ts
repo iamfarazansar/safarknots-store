@@ -17,7 +17,7 @@ module.exports = defineConfig({
     }
   },
   modules: [
-    {
+    ...(process.env.S3_ACCESS_KEY_ID && process.env.S3_SECRET_ACCESS_KEY ? [{
       resolve: "@medusajs/medusa/file",
       options: {
         providers: [
@@ -35,7 +35,7 @@ module.exports = defineConfig({
           },
         ],
       },
-    },
+    }] : []),
   ],
   plugins: [
     ...(MEILISEARCH_HOST && MEILISEARCH_ADMIN_KEY ? [{
